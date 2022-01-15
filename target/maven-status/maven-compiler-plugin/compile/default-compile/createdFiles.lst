@@ -1,0 +1,6 @@
+httpserver/config/Configuration.class
+httpserver/core/ServerListenerThread.class
+httpserver/config/ConfigurationManager.class
+httpserver/HttpServer.class
+httpserver/config/HttpConfigurationException.class
+httpserver/util/Json.class

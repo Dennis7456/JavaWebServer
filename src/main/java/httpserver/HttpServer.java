@@ -2,6 +2,9 @@ package httpserver;
 
 import httpserver.config.Configuration;
 import httpserver.config.ConfigurationManager;
+import httpserver.core.ServerListenerThread;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -10,12 +13,21 @@ import httpserver.config.ConfigurationManager;
  */
 public class HttpServer {
 
+    private final static Logger LOGGER = LoggerFactory.getLogger(HttpServer.class);
+
     public static void main(String[] args){
-        System.out.println("Starting server...");
+        LOGGER.info("Starting server...");
         ConfigurationManager.getInstance().loadConfigurationFile("src/main/resources/http.json");
         Configuration configuration = ConfigurationManager.getInstance().getCurrentConfiguration();
 
-        System.out.println("Using Port: " + configuration.getPort());
-        System.out.println("Using Webroot: " + configuration.getWebroot());
+        LOGGER.info("Using Port: " + configuration.getPort());
+        LOGGER.info("Using Webroot: " + configuration.getWebroot());
+
+        try {
+            ServerListenerThread serverListenerThread = new ServerListenerThread(configuration.getPort(), configuration.getWebroot());
+            serverListenerThread.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
