@@ -26,12 +26,6 @@ public class HttpConnectionWorkerThread extends Thread{
             //Output stream, for writing
             outputStream = socket.getOutputStream();
 
-            //Read the connection coming from the client (browser)
-            int _byte;
-            while ((_byte = inputStream.read()) >= 0){
-                System.out.print((char) _byte);
-            }
-
             String html = "<html><head><title>JavaWebServer</title></head><body><h1>JavaWebServer</h1></body></html>";
 
             final String CRLF = "\n\r";
