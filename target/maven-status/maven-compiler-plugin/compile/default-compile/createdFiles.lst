@@ -1,6 +1,12 @@
-httpserver/config/Configuration.class
 httpserver/core/ServerListenerThread.class
-httpserver/config/ConfigurationManager.class
-httpserver/HttpServer.class
+http/HttpRequest.class
+http/HttpVersion.class
+http/HttpParser.class
 httpserver/config/HttpConfigurationException.class
 httpserver/util/Json.class
+http/HttpParsingException.class
+http/HttpStatusCode.class
+http/HttpMethod.class
+http/BadHttpVersionException.class
+http/HttpServer.class
+http/HttpMessage.class

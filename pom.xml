@@ -43,5 +43,10 @@
         <version>RELEASE</version>
         <scope>test</scope>
     </dependency>
+    <dependency>
+        <groupId>org.scalameta</groupId>
+        <artifactId>io_sjs0.6_2.11</artifactId>
+        <version>4.1.1</version>
+    </dependency>
 </dependencies>
 </project>

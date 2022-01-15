@@ -1,4 +1,4 @@
 {
   "port": "9000",
-  "webroot": "/tmp"
+  "webroot": "tmp"
 }

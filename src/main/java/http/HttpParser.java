@@ -33,10 +33,6 @@ public class HttpParser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //Header
-        parseHeaders(reader,request);
-        //Message body
-        parserBody(reader, request);
 
         return request;
     }
@@ -58,7 +54,14 @@ public class HttpParser {
                     if(!methodParsed || !requestTargetParsed){
                         throw new HttpParsingException(HttpStatusCode.CLIENT_ERROR_400_BAD_REQUEST);
                     }
+                    try {
+                        request.setHttpVersion(processingDataBuffer.toString());
+                    } catch (BadHttpVersionException e) {
+                        throw new HttpParsingException(HttpStatusCode.SERVER_ERROR_505_HTTP_VERSION_NOT_SUPPORTED);
+                    }
                     return;
+                } else {
+                    throw new HttpParsingException(HttpStatusCode.CLIENT_ERROR_400_BAD_REQUEST);
                 }
 
             }
@@ -87,9 +90,5 @@ public class HttpParser {
                 }
             }
         }
-    }
-    private void parseHeaders(InputStreamReader reader, HttpRequest request) {
-    }
-    private void parserBody(InputStreamReader reader, HttpRequest request) {
     }
 }

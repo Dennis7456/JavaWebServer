@@ -1,8 +1,10 @@
-package httpserver;
+package http;
 
+import http.HttpRequest;
 import httpserver.config.Configuration;
 import httpserver.config.ConfigurationManager;
 import httpserver.core.ServerListenerThread;
+import httpserver.httpresponse.WebRootHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,6 +21,7 @@ public class HttpServer {
         LOGGER.info("Starting server...");
         ConfigurationManager.getInstance().loadConfigurationFile("src/main/resources/http.json");
         Configuration configuration = ConfigurationManager.getInstance().getCurrentConfiguration();
+        WebRootHandler.getInstance().loadHtmlFiles(configuration.getWebroot());
 
         LOGGER.info("Using Port: " + configuration.getPort());
         LOGGER.info("Using Webroot: " + configuration.getWebroot());
