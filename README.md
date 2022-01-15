@@ -6,11 +6,18 @@ This server is custom made implementing the GET method with Content-Type and Con
 The client requests are parsed using a Lexerless Parser which parses the bytes as they are received from the client. 
 This ensures that errors are detected soon and the connection can be dropped as soon as a malicious or is not well made.
 All client requests must include the Content-Type and the Content-Length header fields in order for a request to be accepted and processed.
-The list od client errors ans status codes supporte by this server inlcude:
-1.
+The list od client errors and status codes supporte by this server inlcude:
+1. 400, "Bad Request"
+2. 401, "Method Not Allowed"
+3. 414, "URI Too Long"
+
 ## 2.Server Responses
 The server responses include the index page which is the default page defined in the webroot folder. The server also supports a default 404 (file/resource not found)
 response page, a form for URL rewrite to support session management when the cookies are disabled on the browser.
+The list od server errors and status codes supported by this server inlcude:
+1. 500, "Internal Server Error"
+2. 501, "Not Implemented"
+3. 505, "Http Version Not Supported"
 
 The server supports SSL(Secure Sockets Layer)/TLS(Transport Layer Security) via a certificate.
 
