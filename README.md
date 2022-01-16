@@ -51,7 +51,7 @@ keytool -list -keystore <filename.jks> alias <aliasprovided> -v
 and enter password to decrypt the file.
 
 ## Tests
-### This projects comprises of certain tests: 
+### This project comprises of certain tests: 
 #### 1. Client requests tests to assert client requests are valid
 #### 2. Client request errors and status codes to assert proper errors and corresponding status messages
 #### 3. Server response tests to assert server responses are valid
