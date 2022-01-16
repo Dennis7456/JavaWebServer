@@ -83,7 +83,7 @@ public class HttpConnectionWorkerThread extends Thread {
 
             String response =
                     "HTTP/1.1 200 OK" + CRLF + // Status Line  :   HTTTP_VERSION RESPONSE_CODE RESPONSE_MESSAGE
-                            "Content-Length: " + html.getBytes().length + CRLF + // HEADER
+                            "Content-Length: " + html.getBytes().length + CRLF + "Content-Type: " + "text/html" + CRLF + // HEADER
                             CRLF +
                             html +
                             CRLF + CRLF;
