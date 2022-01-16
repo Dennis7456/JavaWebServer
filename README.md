@@ -14,9 +14,13 @@ The list od client errors and status codes supporte by this server inlcude:
 The logic used to parse client requests are obtained from RFCs [7230](https://datatracker.ietf.org/doc/html/rfc7230) and [7231](https://datatracker.ietf.org/doc/html/rfc7231) which define the Http protocol Request Line, Header section and the Message along with the corresponding Chariage Returns and Line Feeds.
 
 The image below represents the client request structure:
+
+
 ![Client Request](https://github.com/Dennis7456/JavaWebServer/blob/main/Img1.jpeg)
 
 The image below represents the request line structure:
+
+
 ![Request Line](https://github.com/Dennis7456/JavaWebServer/blob/main/Img2.jpeg)
 
 ## 2.Server Responses
