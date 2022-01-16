@@ -1,63 +1,25 @@
 package httpserver.httpresponse;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import sun.nio.cs.US_ASCII;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
- *
- * Singleton WebRootHandler class to get content from web root
- *
- */
 public class WebRootHandler {
-
     private static WebRootHandler myWebRootHandler;
-    private static String indexHtmlContent;
-    private static String aboutHtmlContent;
-    private static String formHtmlContent;
-    private static String notFileNotFoundHtmlContent;
+    private static String indexPageContent;
+    private static String formPageContent;
+    private static String fileNotFound;
 
-    static void setIndexHtmlContent(String indexHtmlContent) {
-        WebRootHandler.indexHtmlContent = indexHtmlContent;
-    }
-
-    public static void setAboutHtmlContent(String aboutHtmlContent) {
-        WebRootHandler.aboutHtmlContent = aboutHtmlContent;
-    }
-
-    public static void setFormHtmlContent(String formHtmlContent) {
-        WebRootHandler.formHtmlContent = formHtmlContent;
-    }
-
-    public static void setNotFileNotFoundHtmlContent(String notFileNotFoundHtmlContent) {
-        WebRootHandler.notFileNotFoundHtmlContent = notFileNotFoundHtmlContent;
-    }
-
-    public static String getIndexHtmlContent() {
-        return indexHtmlContent;
-    }
-
-    public static String getFormHtmlContent() {
-        return formHtmlContent;
-    }
-
-    public static String getNotFileNotFoundHtmlContent() {
-        return notFileNotFoundHtmlContent;
-    }
-
-    private WebRootHandler(){
+    private  WebRootHandler(){
 
     }
 
     /**
      *
-     * Check if there exists an instance of WebRoot handler and create an instance in non exists
+     * Check if there exists an instance of WebRoot handler and create an instance if non exists
      *
      */
 
@@ -68,7 +30,31 @@ public class WebRootHandler {
         return myWebRootHandler;
     }
 
-    public void loadHtmlFiles(String filePath){
+    public static String getIndexPageContent() {
+        return indexPageContent;
+    }
+
+    public static String getFormPageContent() {
+        return formPageContent;
+    }
+
+    public static String getFileNotFound() {
+        return fileNotFound;
+    }
+
+    public static void setIndexPageContent(String indexPageContent) {
+        WebRootHandler.indexPageContent = indexPageContent;
+    }
+
+    public static void setFormPageContent(String formPageContent) {
+        WebRootHandler.formPageContent = formPageContent;
+    }
+
+    public static void setFileNotFound(String fileNotFound) {
+        WebRootHandler.fileNotFound = fileNotFound;
+    }
+
+    public void loadIndexFile(String filePath){
         FileReader fileReader = null;
         try {
             fileReader = new FileReader(filePath + "/index.html");
@@ -79,15 +65,50 @@ public class WebRootHandler {
         int i;
         try {
             while ((i = fileReader.read()) != -1) {
-                System.out.print((char) i);
                 stringBuffer.append((char) i);
+                //System.out.print((char) i);
             }
-            System.out.print(stringBuffer.toString());
-           // setIndexHtmlContent(stringBuffer.toString());
-            setIndexHtmlContent("Index Page");
+            setIndexPageContent(stringBuffer.toString());
         } catch (IOException e){
             e.printStackTrace();
         }
-
+    }
+    public void loadFormFile(String filePath){
+        FileReader fileReader = null;
+        try {
+            fileReader = new FileReader(filePath + "/form.html");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        StringBuffer stringBuffer = new StringBuffer();
+        int i;
+        try {
+            while ((i = fileReader.read()) != -1) {
+                stringBuffer.append((char) i);
+                //System.out.print((char) i);
+            }
+            setFormPageContent(stringBuffer.toString());
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    public void loadFileNotFound(String filePath){
+        FileReader fileReader = null;
+        try {
+            fileReader = new FileReader(filePath + "/404.html");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        StringBuffer stringBuffer = new StringBuffer();
+        int i;
+        try {
+            while ((i = fileReader.read()) != -1) {
+                stringBuffer.append((char) i);
+                //System.out.print((char) i);
+            }
+            setFileNotFound(stringBuffer.toString());
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }

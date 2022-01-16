@@ -1,6 +1,7 @@
 package http;
 
-import http.HttpRequest;
+package httpserver;
+
 import httpserver.config.Configuration;
 import httpserver.config.ConfigurationManager;
 import httpserver.core.ServerListenerThread;
@@ -8,29 +9,42 @@ import httpserver.httpresponse.WebRootHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+
 /**
  *
- * Http Server Driver Class
+ * Driver Class for the Http Server
  *
  */
 public class HttpServer {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(HttpServer.class);
 
-    public static void main(String[] args){
-        LOGGER.info("Starting server...");
-        ConfigurationManager.getInstance().loadConfigurationFile("src/main/resources/http.json");
-        Configuration configuration = ConfigurationManager.getInstance().getCurrentConfiguration();
-        WebRootHandler.getInstance().loadHtmlFiles(configuration.getWebroot());
+    public static void main(String[] args) {
 
-        LOGGER.info("Using Port: " + configuration.getPort());
-        LOGGER.info("Using Webroot: " + configuration.getWebroot());
+        LOGGER.info("Server starting...");
+
+        ConfigurationManager.getInstance().loadConfigurationFile("src/main/resources/http.json");
+        Configuration conf = ConfigurationManager.getInstance().getCurrentConfiguration();
+
+        //Passing webroot to Webroot handler instance
+
+        WebRootHandler.getInstance().loadIndexFile(conf.getWebroot());
+        WebRootHandler.getInstance().loadFormFile(conf.getWebroot());
+        WebRootHandler.getInstance().loadFileNotFound(conf.getWebroot());
+
+        LOGGER.info("Using Port: " + conf.getPort());
+        LOGGER.info("Using WebRoot: " + conf.getWebroot());
 
         try {
-            ServerListenerThread serverListenerThread = new ServerListenerThread(configuration.getPort(), configuration.getWebroot());
+            ServerListenerThread serverListenerThread = new ServerListenerThread(conf.getPort(), conf.getWebroot());
             serverListenerThread.start();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
+            // TODO handle later.
         }
+
+
     }
+
 }
