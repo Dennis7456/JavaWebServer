@@ -1,5 +1,7 @@
 package http;
 
+import http.BadHttpVersionException;
+import http.HttpMessage;
 public class HttpRequest extends HttpMessage{
 
     /**

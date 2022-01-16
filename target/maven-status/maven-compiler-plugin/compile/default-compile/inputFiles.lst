@@ -3,8 +3,10 @@
 /Users/des/Sites/myprojects/JavaWebServer/src/main/java/httpserver/HttpServer.java
 /Users/des/Sites/myprojects/JavaWebServer/src/main/java/httpserver/config/HttpConfigurationException.java
 /Users/des/Sites/myprojects/JavaWebServer/src/main/java/httpserver/util/Json.java
+/Users/des/Sites/myprojects/JavaWebServer/src/main/java/httpserver/httpresponse/UrlRewriteHandler.java
 /Users/des/Sites/myprojects/JavaWebServer/src/main/java/http/BadHttpVersionException.java
 /Users/des/Sites/myprojects/JavaWebServer/src/main/java/http/HttpStatusCode.java
+/Users/des/Sites/myprojects/JavaWebServer/src/main/java/httpserver/httpresponse/HttpServerResponseException.java
 /Users/des/Sites/myprojects/JavaWebServer/src/main/java/httpserver/httpresponse/WebRootHandler.java
 /Users/des/Sites/myprojects/JavaWebServer/src/main/java/http/HttpParser.java
 /Users/des/Sites/myprojects/JavaWebServer/src/main/java/http/HttpRequest.java

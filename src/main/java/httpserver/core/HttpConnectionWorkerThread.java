@@ -1,9 +1,9 @@
-package com.coderfromscratch.httpserver.core;
+package httpserver.core;
 
-import com.coderfromscratch.http.HttpParser;
-import com.coderfromscratch.http.HttpParsingException;
-import com.coderfromscratch.http.HttpRequest;
-import com.coderfromscratch.httpserver.httpresponse.WebRootHandler;
+import http.HttpParser;
+import http.HttpParsingException;
+import http.HttpRequest;
+import httpserver.httpresponse.WebRootHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

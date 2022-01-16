@@ -1,7 +1,7 @@
 package httpserver.httpresponse;
 
 
-import com.coderfromscratch.http.HttpParser;
+import http.HttpParser;
 
 public class UrlRewriteHandler {
     private static UrlRewriteHandler urlRewriteHandler;

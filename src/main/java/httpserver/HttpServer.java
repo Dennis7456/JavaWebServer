@@ -1,5 +1,3 @@
-package http;
-
 package httpserver;
 
 import httpserver.config.Configuration;
