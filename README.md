@@ -34,11 +34,20 @@ The list od server errors and status codes supported by this server inlcude:
 The server supports SSL(Secure Sockets Layer)/TLS(Transport Layer Security) via a certificate.
 
 Use the following command to generate a keystore file for authentication using Keytool:
+
+```
 keytool -genkey -keyalg RSA -alias <alias> -keystore <filename.jks> -validity 90 -keysize 2048
+
+```
+
 The above command generates a keystore with validity of 90 days of size 2048 bytes.
 
 Use the following command to check keystore details such as encryption etc.
+
+```
 keytool -list -keystore <filename.jks> alias <aliasprovided> -v
+
+```
 and enter password to decrypt the file.
 
 ## Tests
