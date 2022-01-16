@@ -16,12 +16,12 @@ The logic used to parse client requests are obtained from RFCs [7230](https://da
 The image below represents the client request structure:
 
 
-![Client Request](https://github.com/Dennis7456/JavaWebServer/blob/main/Img1.jpeg)
+![Client Request](https://github.com/Dennis7456/JavaWebServer/blob/main/request.png)
 
 The image below represents the request line structure:
 
 
-![Request Line](https://github.com/Dennis7456/JavaWebServer/blob/main/Img2.jpeg)
+![Request Line](https://github.com/Dennis7456/JavaWebServer/blob/main/startline.png)
 
 ## 2.Server Responses
 The server responses include the index page which is the default page defined in the webroot folder. The server also supports a default 404 (file/resource not found)
