@@ -65,7 +65,7 @@ public class HttpParser {
                     try {
                         request.setHttpVersion(processingDataBuffer.toString());
                     } catch (BadHttpVersionException e) {
-                        throw new HttpParsingException(HttpStatusCode.CLIENT_ERROR_400_BAD_REQUEST);
+                        throw new HttpParsingException(HttpStatusCode.SERVER_ERROR_505_HTTP_VERSION_NOT_SUPPORTED);
                     }
                     //Important to have return statement
                     return;
